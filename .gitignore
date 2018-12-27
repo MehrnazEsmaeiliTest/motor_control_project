@@ -1,3 +1,9 @@
+# Folders
+app_gpio_blinking_led/app_gpio_blinking_led/
+app_gpio_blinking_led/cmsis_boot/
+app_gpio_blinking_led/cmsis_core/
+
+
 # Compiled Object files
 #*.slo
 #*.lo
@@ -14,9 +20,9 @@
 #*.ld
 
 # Compiled binaries
-*.bin
-*.elf
-*.hex
+# *.bin
+# *.elf
+# *.hex
 #*.map
 
 # Eclipse workfiles
