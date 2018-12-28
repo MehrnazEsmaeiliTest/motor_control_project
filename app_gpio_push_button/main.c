@@ -1,8 +1,38 @@
 
+#include "stm32f0xx.h"
+
 int main(void)
 {
+	RCC ->AHBENR |= RCC_AHBENR_GPIOCEN;
+	RCC ->AHBENR |= RCC_AHBENR_GPIOBEN;
 
-    while(1)
-    {
-    }
+	GPIOC ->MODER |= GPIO_MODER_MODER6_0;
+	GPIOC ->MODER &= ~(GPIO_MODER_MODER6_1);
+
+	GPIOC ->OTYPER &= ~(GPIO_OTYPER_OT_6);
+
+	GPIOC ->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR6_0 | GPIO_OSPEEDER_OSPEEDR6_1;
+
+	GPIOC ->PUPDR &= ~(GPIO_PUPDR_PUPDR6);
+
+	GPIOB ->MODER &= ~(GPIO_MODER_MODER1);
+	GPIOB ->PUPDR &= ~(GPIO_PUPDR_PUPDR1);
+
+
+
+	while(1)
+	{
+		if (GPIOB ->IDR & GPIO_IDR_1)
+		{
+
+		GPIOC ->BSRR |= GPIO_BSRR_BS_6;
+
+		}
+		else
+		{
+
+		GPIOC ->BRR |= GPIO_BRR_BR_6;
+		}
+
+	}
 }
